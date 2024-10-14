@@ -6,20 +6,20 @@ const userSchema = mongoose.Schema(
     name: {
       type: String,
       required: true,
-      minlength: 15,
+      minlength: 5,
       maxlength: 30,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      minlength: 15,
+      minlength: 5,
       maxlength: 30,
     },
     password: {
       type: String,
       required: true,
-      minlength: 15,
+      minlength: 5,
       maxlength: 100,
     },
   },
@@ -28,15 +28,15 @@ const userSchema = mongoose.Schema(
   }
 );
 
-const User = mongoose.model('User', userSchema);
+export const User = mongoose.model('User', userSchema);
 
-function userValidation(user) {
+export function userValidation(user) {
   const schema = Joi.object({
-    name: Joi.string().min(15).max(30).required(),
-    email: Joi.string().min(15).max(30).required().email(),
-    password: Joi.string().min(15).max(100).required(),
+    name: Joi.string().min(5).max(30).required(),
+    email: Joi.string().min(5).max(30).required().email(),
+    password: Joi.string().min(5).max(100).required(),
   });
   return schema.validate(user);
 }
 
-export default { User, userValidation };
+// export default { User, userValidation };
