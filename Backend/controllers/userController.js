@@ -17,8 +17,15 @@ export const createUser = async (req, res) => {
 //get a single user
 export const getSingleUser = async (req, res) => {
   const user = await User.findById(req.params.id);
+
   if (!user) return res.status(400).json({ message: 'User does not exist' });
   res.send(user);
+
+  const existingUser = await User.findOne({ email: req.body.email });
+
+  if (existingUser) {
+    return res.status(400).json({ message: 'Email already in use' });
+  }
 };
 
 //update
