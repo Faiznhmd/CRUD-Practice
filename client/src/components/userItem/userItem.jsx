@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import UserContext from '../../context/userContext';
+import './useritem.scss';
 
 const UserItem = ({ item }) => {
   const { users, loading, EditUsers, DeleteUser } = useContext(UserContext);
@@ -19,9 +20,10 @@ const UserItem = ({ item }) => {
   if (loading) {
     return <div> Loading...</div>;
   }
+
   return (
     <>
-      <div>
+      <div className="userlist">
         <h1>Users List</h1>
         {users.map((user) => (
           <div key={user._id}>
@@ -30,18 +32,21 @@ const UserItem = ({ item }) => {
                 <input
                   type="text"
                   value={form.name}
+                  name="name"
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
 
                 <input
                   type="email"
                   value={form.email}
+                  name="email"
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
 
                 <input
                   type="password"
                   value={form.password}
+                  name="password"
                   onChange={(e) =>
                     setForm({ ...form, password: e.target.value })
                   }

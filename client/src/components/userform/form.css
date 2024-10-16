@@ -1,0 +1,22 @@
+.userform {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 300px;
+}
+.userform label {
+  padding: 10px 0px;
+  font-size: 25px;
+}
+.userform input {
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+}
+.userform button {
+  padding: 10px 0px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 30px;
+  cursor: pointer;
+}/*# sourceMappingURL=form.css.map */
